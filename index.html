@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dragon Tech Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0c0f1c;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #111529, #1f2544);
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .logo {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #00ffc6;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-size: 2.8em;
+      color: #00ffc6;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #ccc;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    nav ul li {
+      margin: 0 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #00ffc6;
+      font-size: 1.2em;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #00d1a0;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 28px;
+      background: #00ffc6;
+      color: #0c0f1c;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #00d1a0;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      color: #00ffc6;
+      font-size: 2em;
+      margin-bottom: 40px;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: #181c2f;
+      border: 1px solid #2a2f4a;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    }
+    .card h3 {
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+    .card p {
+      color: #ccc;
+      font-size: 0.95em;
+    }
+    .why {
+      text-align: center;
+    }
+    .why p {
+      color: #bbb;
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.05em;
+    }
+    #contact {
+      background: #181c2f;
+      padding: 60px 20px;
+      text-align: center;
+      color: #ffffff;
+    }
+    #contact h2 {
+      font-size: 2.2em;
+      color: #00ffc6;
+      margin-bottom: 20px;
+    }
+    #contact p {
+      font-size: 1.1em;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: #111529;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      font-size: 1em;
+    }
+
+    footer p {
+      color: #aaa;
+    }
+
+    footer a {
+      color: #00ffc6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        margin-top: 20px;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://i.imgur.com/VOswJ49.png" alt="Dragon Tech Logo" class="logo" />
+    <h1>NA-KHAA Tech Solutions</h1>
+    <p>Professional OS Tools & Remote Tech Services</p>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#products" class="btn">Explore Products</a>
+  </header>
+
+  <section id="products">
+    <h2>Our Products & Services</h2>
+    <div class="products">
+      <div class="card">
+        <h3>USB Multiboot Pendrive</h3>
+        <p>Boot multiple operating systems from a single USB. Ideal for IT technicians and power users.</p>
+      </div>
+      <div class="card">
+        <h3>Multiboot + Recovery Pendrive</h3>
+        <p>Complete toolkit with OS installers and recovery utilities. Your digital emergency drive.</p>
+      </div>
+      <div class="card">
+        <h3>Online Format Service</h3>
+        <p>We remotely reinstall or repair your Windows OS. Fast, safe, and done entirely online.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <h2>Why Choose NAKHAA?</h2>
+    <p>We offer reliable, tech-savvy solutions with high-quality tools and professional support. Whether you're a technician or casual user, we've got your back.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions? Feel free to reach out to us!</p>
+    <p>Email: nakhaatech@gmail.com</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 NA-KHAA TECH. All rights reserved. | <a href="mailto:nakhaatech@gmail.com">Contact Us</a></p>
+  </footer>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDxM30qoiO02K0viMR2jN6ErWEzyAgLWWI",
+      authDomain: "nakhaa-54be7.firebaseapp.com",
+      projectId: "nakhaa-54be7",
+      storageBucket: "nakhaa-54be7.appspot.com",
+      messagingSenderId: "873057469942",
+      appId: "1:873057469942:web:cb4c125b74bc84f8c0b3d7",
+      measurementId: "G-TSL0ZSF9CF"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        document.querySelector('a[href="login_signup.html"]').style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>
